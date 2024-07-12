@@ -1,0 +1,14 @@
+const AppError = require('./appError');
+
+class NotFoundError extends AppError {
+    constructor(resource) {
+            // let notFoundProperties = "";
+             //properties.forEach(property => notFoundProperties += `${property} ,`);
+
+             super (`Not able to find  ${resource}` , 404);
+    }
+}
+
+
+module.exports = NotFoundError;
+// notFoundProperties
