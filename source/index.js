@@ -1,7 +1,8 @@
 ///basic server configuration
-const express = require('express');
+const express = require('express')
 const cookieParser = require('cookie-parser');
 const ServerConfig = require('./config/serverConfig');
+const cors = require('cors')
 const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute');
 const cartRouter = require('./routes/cartRoute');
@@ -13,6 +14,10 @@ const orderRouter = require('./routes/orderRoutes');
 
 
 const app = express();
+app.use(cors({
+  origin : 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.text());
 app.use(cookieParser());
